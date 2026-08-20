@@ -22,88 +22,244 @@
 
     body {
       min-height: 100vh;
-      font-family: Arial, sans-serif;
-      background: linear-gradient(
-        135deg,
-        #16002e,
-        #3b0875,
-        #16002e
-      );
+      font-family: Arial, Helvetica, sans-serif;
       color: white;
+
       display: flex;
       justify-content: center;
       align-items: center;
-      padding: 25px;
+
+      padding: 30px 18px;
+
+      background:
+        radial-gradient(
+          circle at 20% 10%,
+          rgba(151, 70, 255, 0.45),
+          transparent 35%
+        ),
+        radial-gradient(
+          circle at 85% 90%,
+          rgba(104, 35, 190, 0.4),
+          transparent 35%
+        ),
+        linear-gradient(
+          135deg,
+          #0d001b 0%,
+          #240047 45%,
+          #100020 100%
+        );
+
+      overflow-x: hidden;
+    }
+
+    /* Ambient glow */
+    body::before {
+      content: "";
+      position: fixed;
+      width: 420px;
+      height: 420px;
+
+      top: -180px;
+      right: -150px;
+
+      background: rgba(170, 90, 255, 0.25);
+
+      filter: blur(100px);
+      border-radius: 50%;
+
+      pointer-events: none;
+    }
+
+    body::after {
+      content: "";
+      position: fixed;
+      width: 350px;
+      height: 350px;
+
+      bottom: -150px;
+      left: -130px;
+
+      background: rgba(102, 40, 190, 0.22);
+
+      filter: blur(100px);
+      border-radius: 50%;
+
+      pointer-events: none;
     }
 
     .container {
       width: 100%;
-      max-width: 500px;
+      max-width: 520px;
+
+      padding: 30px 24px;
+
       text-align: center;
+
+      /* Strong Mica Glass */
+      background:
+        linear-gradient(
+          135deg,
+          rgba(255, 255, 255, 0.14),
+          rgba(255, 255, 255, 0.045)
+        );
+
+      border: 1px solid rgba(255, 255, 255, 0.18);
+
+      border-radius: 28px;
+
+      backdrop-filter: blur(35px) saturate(160%);
+      -webkit-backdrop-filter: blur(35px) saturate(160%);
+
+      box-shadow:
+        0 25px 80px rgba(0, 0, 0, 0.55),
+        inset 0 1px 1px rgba(255, 255, 255, 0.2),
+        inset 0 0 35px rgba(255, 255, 255, 0.025);
     }
 
     .avatar {
-      width: 100px;
-      height: 100px;
-      border-radius: 50%;
-      margin: 0 auto 15px;
+      width: 105px;
+      height: 105px;
+
       object-fit: cover;
-      border: 3px solid #b77cff;
+
+      border-radius: 50%;
+
+      border: 3px solid rgba(210, 165, 255, 0.85);
+
       box-shadow:
-        0 0 15px #8f42ff,
-        0 0 35px rgba(143, 66, 255, 0.5);
+        0 0 20px rgba(159, 82, 255, 0.8),
+        0 0 55px rgba(126, 47, 220, 0.45);
+
+      margin-bottom: 16px;
     }
 
     h1 {
-      font-size: 30px;
-      margin-bottom: 7px;
+      font-size: 32px;
+      font-weight: 750;
+      letter-spacing: -0.5px;
+
+      margin-bottom: 6px;
+
+      text-shadow:
+        0 2px 20px rgba(190, 130, 255, 0.35);
     }
 
     .bio {
-      color: #d9c5ff;
-      margin-bottom: 25px;
+      color: rgba(235, 220, 255, 0.75);
       font-size: 15px;
+
+      margin-bottom: 28px;
     }
 
     .links {
       display: flex;
       flex-direction: column;
-      gap: 14px;
+      gap: 13px;
     }
 
     .link {
-      display: block;
-      padding: 16px 20px;
-      border-radius: 14px;
-      background: rgba(255, 255, 255, 0.10);
-      border: 1px solid rgba(255, 255, 255, 0.15);
-      color: white;
+      min-height: 58px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      position: relative;
+
+      padding: 15px 55px 15px 55px;
+
+      border-radius: 17px;
+
       text-decoration: none;
-      font-weight: bold;
-      backdrop-filter: blur(10px);
-      transition: 0.2s;
+      color: white;
+
+      font-size: 16px;
+      font-weight: 650;
+
+      background:
+        linear-gradient(
+          135deg,
+          rgba(255, 255, 255, 0.13),
+          rgba(255, 255, 255, 0.045)
+        );
+
+      border: 1px solid rgba(255, 255, 255, 0.16);
+
+      backdrop-filter: blur(25px) saturate(150%);
+      -webkit-backdrop-filter: blur(25px) saturate(150%);
+
+      box-shadow:
+        inset 0 1px 1px rgba(255, 255, 255, 0.16),
+        0 8px 25px rgba(0, 0, 0, 0.18);
+
+      transition:
+        transform 0.2s ease,
+        background 0.2s ease,
+        box-shadow 0.2s ease,
+        border-color 0.2s ease;
     }
 
     .link:hover {
       transform: translateY(-3px);
-      background: rgba(183, 124, 255, 0.25);
+
+      background:
+        linear-gradient(
+          135deg,
+          rgba(190, 125, 255, 0.23),
+          rgba(255, 255, 255, 0.09)
+        );
+
+      border-color: rgba(210, 170, 255, 0.35);
+
       box-shadow:
-        0 8px 25px rgba(143, 66, 255, 0.35);
+        0 12px 35px rgba(91, 30, 170, 0.35),
+        inset 0 1px 1px rgba(255, 255, 255, 0.22);
+    }
+
+    .favicon {
+      width: 25px;
+      height: 25px;
+
+      object-fit: contain;
+
+      position: absolute;
+      left: 19px;
+
+      border-radius: 6px;
+
+      filter:
+        drop-shadow(0 2px 5px rgba(0, 0, 0, 0.3));
     }
 
     footer {
-      margin-top: 25px;
-      color: #a990c9;
+      margin-top: 27px;
+
       font-size: 13px;
+
+      color: rgba(220, 195, 245, 0.55);
+    }
+
+    @media (max-width: 500px) {
+      .container {
+        padding: 27px 18px;
+        border-radius: 24px;
+      }
+
+      h1 {
+        font-size: 29px;
+      }
+
+      .link {
+        min-height: 56px;
+      }
     }
   </style>
 </head>
 
 <body>
 
-  <div class="container">
+  <main class="container">
 
-    <!-- Dùng luôn ảnh Screenshot làm avatar -->
     <img
       src="Screenshot%202026-08-19%20180115.png"
       class="avatar"
@@ -118,40 +274,79 @@
 
     <div class="links">
 
+      <!-- YouTube -->
       <a
         class="link"
         href="https://www.youtube.com/@kangbaoreal"
         target="_blank"
         rel="noopener noreferrer"
       >
-        ▶️ YouTube
+        <img
+          class="favicon"
+          src="https://www.google.com/s2/favicons?domain=youtube.com&sz=64"
+          alt=""
+        >
+        YouTube
       </a>
 
+      <!-- TikTok -->
       <a
         class="link"
         href="https://www.tiktok.com/@kangbaoreal"
         target="_blank"
         rel="noopener noreferrer"
       >
-        🎵 TikTok
+        <img
+          class="favicon"
+          src="https://www.google.com/s2/favicons?domain=tiktok.com&sz=64"
+          alt=""
+        >
+        TikTok
       </a>
 
+      <!-- KBAI -->
       <a
         class="link"
         href="https://kangbao15.github.io/kbai"
         target="_blank"
         rel="noopener noreferrer"
       >
-        🤖 KBAI
+        <img
+          class="favicon"
+          src="https://www.google.com/s2/favicons?domain=kangbao15.github.io&sz=64"
+          alt=""
+        >
+        KBAI
       </a>
 
+      <!-- Auto Click -->
       <a
         class="link"
         href="https://kangbao15.github.io/auto-click"
         target="_blank"
         rel="noopener noreferrer"
       >
-        🖱️ Auto Click
+        <img
+          class="favicon"
+          src="https://www.google.com/s2/favicons?domain=kangbao15.github.io&sz=64"
+          alt=""
+        >
+        Auto Click
+      </a>
+
+      <!-- Wofl Browser -->
+      <a
+        class="link"
+        href="https://kangbao15.github.io/wofl-browser"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <img
+          class="favicon"
+          src="https://www.google.com/s2/favicons?domain=kangbao15.github.io&sz=64"
+          alt=""
+        >
+        Wofl Browser
       </a>
 
     </div>
@@ -160,7 +355,7 @@
       © 2026 KangBao
     </footer>
 
-  </div>
+  </main>
 
 </body>
 </html>
